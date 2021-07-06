@@ -21,4 +21,18 @@ abstract class ElectroAssistThemes {
       ),
     ),
   );
+
+  /// Contains all the themes defined in [ElectroAssistThemes] as a [Set] /
+  /// [Iterable] of [ThemeData].
+  ///
+  /// **Use cases include:**
+  /// * Showing all the available themes in `Preferences` section.
+  /// * Storing the index of the user's preferred theme instead of serializing
+  /// the entire instance of [ThemeData].
+  ///
+  /// **Caution:**
+  /// * New themes must be appended to the existing entries only!
+  static final all = {
+    defaultTheme,
+  };
 }
