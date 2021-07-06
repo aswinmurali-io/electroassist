@@ -22,7 +22,7 @@ class ElectroAssist extends StatelessWidget {
           ),
         ),
       ),
-      home: DashboardPage(),
+      home: Dashboard(),
     );
   }
 }
