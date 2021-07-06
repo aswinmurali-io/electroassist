@@ -1,3 +1,4 @@
+import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -17,9 +18,13 @@ class _DashboardPageState extends State<DashboardPage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+          children: [
+            ModuleTile(
+              avatorColor: Colors.white,
+              title: 'Some title',
+              page: DashboardPage(),
+              icon: Icon(Icons.ac_unit),
+              description: 'Some info',
             ),
           ],
         ),
