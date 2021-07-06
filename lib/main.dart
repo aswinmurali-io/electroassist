@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(ElectroAssist());
 
-/// Is a [Widget] and also contains core properties and information about this
-/// app as static declarations.
+/// Is a [MaterialApp] and also contains core properties and information about
+/// this app as static declarations.
 class ElectroAssist extends StatefulWidget {
   /// The name of the app. Defaults to: `Electro Assist`.
   static const appName = 'Electro Assist';
