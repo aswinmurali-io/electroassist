@@ -10,6 +10,17 @@ class ElectroAssist extends StatelessWidget {
       title: 'Electro Assist',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              color: Colors.blueGrey.shade400,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+        ),
       ),
       home: DashboardPage(),
     );
