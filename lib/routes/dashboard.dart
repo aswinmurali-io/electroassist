@@ -1,3 +1,4 @@
+import 'package:electroassist/main.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _DashboardState extends State<Dashboard> {
   build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Electro Assist"),
+        title: Text(ElectroAssist.appName),
       ),
       body: Center(
         child: Column(

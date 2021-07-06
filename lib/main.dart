@@ -10,6 +10,7 @@ class ElectroAssist extends StatefulWidget {
   /// The name of the app. Defaults to: `Electro Assist`.
   static const appName = 'Electro Assist';
 
+  @override
   createState() => _ElectroAssistState();
 
   /// Returns the instance of `State<ElectroAssist>` in the widget tree of
