@@ -4,6 +4,10 @@ import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
 class ResistorColorCode extends Module {
+  ResistorColorCode._();
+
+  static final instance = ResistorColorCode._();
+
   @override
   get name => 'Resistor Color Code';
 
@@ -32,4 +36,10 @@ class ResistorColorCode extends Module {
           ],
         ),
       );
+
+  static final colors = [
+    Colors.black,
+    Colors.brown,
+    Colors.red,
+  ];
 }
