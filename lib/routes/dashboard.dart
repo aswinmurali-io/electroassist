@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (var module in modules)
+            for (final module in Module.allModules)
               Padding(
                 padding: const EdgeInsets.all(40.0),
                 child: ModuleTile(
