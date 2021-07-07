@@ -1,3 +1,4 @@
+import 'package:electroassist/modules/resistor_color_code/module.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +25,10 @@ abstract class Module {
   /// The style of the module tile.
   ModuleTileStyle get style;
 
-  /// Constructs the module and adds the instance to [Module.allModules].
-  Module() {
-    allModules.add(this);
-  }
+  const Module();
 
   /// [Set] of [Module]s that has been constructed.
-  static final Set<Module> allModules = {};
+  static final Set<Module> allModules = {
+    ResistorColorCode.instance,
+  };
 }
