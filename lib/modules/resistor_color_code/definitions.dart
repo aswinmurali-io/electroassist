@@ -129,4 +129,64 @@ class ResistorColorBand {
       asMultiplier: 1e-2,
       asTolerancePercentage: 10,
       asTemperatureCoefficient: null);
+
+  /// Contains all valid digit bands.
+  static const digitBands = [
+    Black,
+    Brown,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Violet,
+    Grey,
+    White,
+  ];
+
+  /// Contains all valid multiplier bands.
+  static const multiplierBands = [
+    Silver,
+    Gold,
+    Black,
+    Brown,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Violet,
+    Grey,
+    White,
+  ];
+
+  /// Contains all valid tolerance bands.
+  static const toleranceBands = [
+    Grey,
+    Violet,
+    Blue,
+    Green,
+    Brown,
+    Red,
+    Orange,
+    Yellow,
+    Gold,
+    Silver,
+  ];
+
+  /// The default tolerance band.
+  static const defaultToleranceBand = Gold;
+
+  /// Contains all valid temperature coefficient bands.
+  static const temperatureCoefficientBands = [
+    Black,
+    Brown,
+    Red,
+    Orange,
+    Yellow,
+    Green,
+    Blue,
+    Violet,
+    Grey,
+  ];
 }
