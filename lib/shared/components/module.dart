@@ -27,8 +27,8 @@ abstract class Module {
 
   const Module();
 
-  /// [Set] of [Module]s that has been constructed.
-  static final Set<Module> allModules = {
+  /// [Set] of [Module]s that are available in this app.
+  static final allModules = <Module>{
     ResistorColorCode.instance,
   };
 }
