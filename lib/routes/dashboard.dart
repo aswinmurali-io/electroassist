@@ -1,4 +1,5 @@
 import 'package:electroassist/main.dart';
+import 'package:electroassist/shared/components/module.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +21,14 @@ class _DashboardState extends State<Dashboard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ModuleTile(
-              avatorColor: Colors.white,
-              title: 'Some title',
-              page: Dashboard(),
-              icon: Icon(Icons.ac_unit),
-              description: 'Some info',
-            ),
+            for (var module in modules)
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: ModuleTile(
+                  module: module,
+                  style: module.style,
+                ),
+              ),
           ],
         ),
       ),

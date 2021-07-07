@@ -9,6 +9,14 @@ abstract class ElectroAssistThemes {
   /// preferred theme.
   static final defaultTheme = ThemeData(
     primarySwatch: Colors.blue,
+    shadowColor: Colors.blueGrey.shade50.withOpacity(0.5),
+    textTheme: TextTheme(
+      headline6: TextStyle(
+        color: Colors.blueGrey.shade400,
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
