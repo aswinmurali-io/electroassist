@@ -5,22 +5,22 @@ import 'package:flutter/material.dart';
 
 @immutable
 class ModuleTileStyle {
-  /// The [image] of this module.
+  /// The image of this module.
   final Widget image;
 
-  /// The [avatorColor] for the module.
+  /// The avator color for the module.
   final Color avatorColor;
 
-  /// The [gradient] for the module.
+  /// The gradient for the module.
   final Gradient gradient;
 
-  /// The [style] for the [Text].
-  final TextStyle style;
+  /// The style for the [Text].
+  final TextStyle textStyle;
 
   const ModuleTileStyle({
     required this.image,
     required this.avatorColor,
-    required this.style,
+    required this.textStyle,
     this.gradient = const LinearGradient(
       colors: [
         Color(0xFFECEFF1), // Colors.blueGrey.shade50
@@ -82,17 +82,16 @@ class ModuleTile extends StatelessWidget {
                       children: [
                         Text(
                           module.name,
-                          style: style.style.copyWith(
+                          style: style.textStyle.copyWith(
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
                             letterSpacing: 0.7,
                             fontSize: 18,
                           ),
                         ),
                         Text(
                           module.description,
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.85),
+                          style: style.textStyle.copyWith(
+                            color: style.textStyle.color?.withOpacity(0.85),
                           ),
                         ),
                       ],
