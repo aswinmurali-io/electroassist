@@ -33,8 +33,10 @@ class ModuleTileStyle {
 /// The [ModuleTile] is a button used to open the [Module]
 /// when pressed.
 class ModuleTile extends StatelessWidget {
+  /// module for the widget to display.
   final Module module;
 
+  /// style of the module tile.
   final ModuleTileStyle style;
 
   const ModuleTile({
