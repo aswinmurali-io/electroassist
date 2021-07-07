@@ -18,6 +18,9 @@ abstract class ElectroAssistThemes {
       ),
     ),
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: Colors.blueGrey,
+      ),
       backgroundColor: Colors.transparent,
       shadowColor: Colors.transparent,
       textTheme: TextTheme(
