@@ -1,3 +1,5 @@
+import 'package:electroassist/routes/calculators/resistor_color_codes.dart';
+import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
 /// Base class interface for all modules. Every modules must inherit this
@@ -17,6 +19,10 @@ abstract class Module {
   /// The page that draws the entire section relevant to this module.
   Widget get page;
 
-  /// The icon of this module.
-  Widget get icon;
+  /// The style of the module tile.
+  ModuleTileStyle get style;
 }
+
+final modules = <Module>[
+  ResistorColorCodes(),
+];
