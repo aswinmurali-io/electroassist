@@ -21,7 +21,7 @@ class ResistorColorCodes extends Module {
           Icons.ac_unit,
           color: Colors.white,
         ),
-        style: TextStyle(
+        textStyle: TextStyle(
           color: Colors.white,
         ),
         gradient: LinearGradient(
