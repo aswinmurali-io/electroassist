@@ -17,6 +17,9 @@ abstract class ElectroAssistThemes {
         fontSize: 18,
       ),
     ),
+    iconTheme: IconThemeData(
+      color: Colors.blueGrey,
+    ),
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(
         color: Colors.blueGrey,
