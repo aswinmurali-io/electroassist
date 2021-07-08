@@ -1,4 +1,5 @@
-import 'package:electroassist/main.dart';
+import 'package:electroassist/modules/resistor_color_code/module.dart';
+import 'package:electroassist/shared/widgets/resistor_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,52 +11,37 @@ class ResistorColorCodePage extends StatefulWidget {
 }
 
 class _ResistorColorCodePageState extends State<ResistorColorCodePage> {
+  List<String> _tabs = [
+    "1st Band",
+    "2nd Band",
+    "3rd Band",
+    "Multiplier",
+    "Tolerance",
+    "Temp",
+  ];
+
   @override
   build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(ElectroAssist.appName),
+        title: Text(ResistorColorCode.instance.name),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Text("RESISTOR IMAGE HERE"),
-                CupertinoScrollbar(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: BouncingScrollPhysics(),
-                    child: DataTable(
-                      headingRowColor:
-                          MaterialStateProperty.resolveWith<Color?>(
-                              (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.hovered))
-                          return Theme.of(context)
-                              .colorScheme
-                              .primary
-                              .withOpacity(0.08);
-                        return null; // Use the default value.
-                      }),
-                      columns: [
-                        DataColumn(label: Text("1st Digit")),
-                        DataColumn(label: Text("2nd Digit")),
-                        DataColumn(label: Text("3rd Digit")),
-                        DataColumn(label: Text("Multipiler")),
-                        DataColumn(label: Text("Tolerance")),
-                        DataColumn(label: Text("Temp Coeff")),
-                      ],
-                      rows: [
-                        DataRow(cells: [
-                          for (int i = 0; i < 6; i++) DataCell(Text("--")),
-                        ]),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("RESISTOR IMAGE HERE"),
+              SizedBox(height: 20),
+              SizedBox(
+                height: 200,
+                child: ChipSelector(
+                  onSelected: (index) => _selectedIndex = index,
+                  tabs: _tabs,
+                ),
+              ),
+            ],
           ),
         ),
       ),
