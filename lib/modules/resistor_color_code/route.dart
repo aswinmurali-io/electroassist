@@ -20,6 +20,8 @@ class _ResistorColorCodePageState extends State<ResistorColorCodePage> {
     "Temp",
   ];
 
+  int _selectedIndex = 0;
+
   @override
   build(context) {
     return Scaffold(
