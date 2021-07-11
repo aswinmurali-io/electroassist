@@ -1,4 +1,6 @@
+import 'package:animations/animations.dart';
 import 'package:electroassist/main.dart';
+import 'package:electroassist/routes/settings.dart';
 import 'package:electroassist/shared/components/module.dart';
 import 'package:electroassist/shared/widgets/gradient_floating_action_button.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
@@ -33,10 +35,33 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ),
-      floatingActionButton: GradientFloatingActionButton(
-        tooltip: 'Add',
-        onPressed: () {},
-        child: Icon(Icons.add),
+      floatingActionButton: OpenContainer(
+        closedElevation: 0,
+        openColor: Colors.transparent,
+        closedColor: Colors.transparent,
+        openElevation: 0,
+        openBuilder: (context, _) => SettingsPage(),
+        closedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        closedBuilder: (context, action) {
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 3, 8),
+            child: GradientFloatingActionButton(
+              tooltip: 'Settings',
+              onPressed: action,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.red,
+                  Colors.yellow,
+                ],
+              ),
+              child: Icon(Icons.settings),
+            ),
+          );
+        },
       ),
     );
   }
