@@ -16,6 +16,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   build(context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: Column(
         children: [
@@ -25,11 +26,7 @@ class _DashboardState extends State<Dashboard> {
               padding: const EdgeInsets.fromLTRB(20, 60, 0, 10),
               child: Text(
                 ElectroAssist.appName,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  color: Colors.blueGrey,
-                  fontSize: 30,
-                ),
+                style: theme.textTheme.headline1,
               ),
             ),
           ),
