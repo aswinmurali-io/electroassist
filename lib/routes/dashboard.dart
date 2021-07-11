@@ -17,23 +17,31 @@ class _DashboardState extends State<Dashboard> {
   @override
   build(context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(ElectroAssist.appName),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (final module in Module.allModules)
-              Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: ModuleTile(
-                  module: module,
-                  style: module.style,
+      body: Column(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 60, 0, 10),
+              child: Text(
+                ElectroAssist.appName,
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  color: Colors.blueGrey,
+                  fontSize: 30,
                 ),
               ),
-          ],
-        ),
+            ),
+          ),
+          for (final module in Module.allModules)
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: ModuleTile(
+                module: module,
+                style: module.style,
+              ),
+            ),
+        ],
       ),
       floatingActionButton: OpenContainer(
         closedElevation: 0,
