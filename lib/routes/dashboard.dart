@@ -1,5 +1,6 @@
 import 'package:electroassist/main.dart';
 import 'package:electroassist/shared/components/module.dart';
+import 'package:electroassist/shared/widgets/gradient_floating_action_button.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +33,9 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: GradientFloatingActionButton(
+        tooltip: 'Add',
         onPressed: () {},
-        tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
     );
