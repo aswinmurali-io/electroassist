@@ -17,6 +17,7 @@ dependencies:
   bouncing_widget: ^2.0.0
   animations: ^2.0.0
   meta: ^1.3.0
+  provider: ^5.0.0
 
 flutter:
   uses-material-design: true

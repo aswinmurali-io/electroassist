@@ -1,10 +1,19 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 enum ResistorBandType { threeBand, fourBand, fiveBand, sixBand }
 
 class ResistorColorCodeViewModel extends ChangeNotifier {
+  /// Find's the [ResistorColorCodeViewModel] from the provided [context].
+  /// Set [listen] to false to listen outside build.
+  static ResistorColorCodeViewModel of(
+    BuildContext context, {
+    bool listen = true,
+  }) =>
+      Provider.of(context, listen: listen);
+
   ResistorBandType _bandType = ResistorBandType.fourBand;
 
   ResistorBandType get bandType => _bandType;
