@@ -16,6 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   build(context) {
+    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -37,26 +38,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 padding: const EdgeInsets.fromLTRB(20, 60, 0, 10),
                 child: Text(
                   "Settings",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    color: Colors.blueGrey,
-                    fontSize: 30,
-                  ),
+                  style: theme.textTheme.headline1,
                 ),
               ),
               ListTile(
-                title: Text(
-                  'Dark Theme',
-                  style: TextStyle(
-                    color: Colors.blueGrey.shade700,
-                  ),
-                ),
-                subtitle: Text(
-                  'Enable to disable dark mode.',
-                  style: TextStyle(
-                    color: Colors.blueGrey.shade400,
-                  ),
-                ),
+                title: Text('Dark Theme'),
+                subtitle: Text('Enable to disable dark mode.'),
                 trailing: Switch(
                   value: _isDarkMode,
                   onChanged: (value) => setState(() => _isDarkMode = value),
@@ -65,22 +52,14 @@ class _SettingsPageState extends State<SettingsPage> {
             ],
           ),
         ),
-        bottomNavigationBar: OpenContainer(
-          closedElevation: 0,
-          openColor: Colors.transparent,
-          closedColor: Colors.transparent,
-          openElevation: 0,
-          openBuilder: (context, _) => Dashboard(),
-          closedShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 3, 8),
+          child: GradientFloatingActionButton(
+            child: Icon(Icons.chevron_left),
+            //gradient: ,
+            onPressed: Navigator.of(context).pop,
+            tooltip: "Go back to home",
           ),
-          closedBuilder: (context, action) {
-            return GradientFloatingActionButton(
-              child: Icon(Icons.home),
-              onPressed: action,
-              tooltip: "Go back to home",
-            );
-          },
         ),
       ),
     );
