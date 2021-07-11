@@ -51,24 +51,24 @@ class ResistorColorCodeViewModel extends ChangeNotifier {
 
   static final _random = Random();
 
-  static num randomDigitBand() =>
+  static num get randomDigitBand =>
       digitBandValues.elementAt(_random.nextInt(digitBandColors.length));
 
-  static num randomMultiplierBand() => multiplierBandValues
+  static num get randomMultiplierBand => multiplierBandValues
       .elementAt(_random.nextInt(multiplierBandValues.length));
 
-  static num randomToleranceBand() => toleranceBandValues
+  static num get randomToleranceBand => toleranceBandValues
       .elementAt(_random.nextInt(toleranceBandValues.length));
 
-  static num randomTemperatureCoefficientBand() => tempCoeffBandValues
+  static num get randomTemperatureCoefficientBand => tempCoeffBandValues
       .elementAt(_random.nextInt(tempCoeffBandValues.length));
 
-  num _digit1 = randomDigitBand();
-  num _digit2 = randomDigitBand();
-  num _digit3 = randomDigitBand();
-  num _multiplier = randomMultiplierBand();
-  num _tolerance = randomToleranceBand();
-  num _temperatureCoefficient = randomTemperatureCoefficientBand();
+  num _digit1 = randomDigitBand;
+  num _digit2 = randomDigitBand;
+  num _digit3 = randomDigitBand;
+  num _multiplier = randomMultiplierBand;
+  num _tolerance = randomToleranceBand;
+  num _temperatureCoefficient = randomTemperatureCoefficientBand;
 
   num get digit1 => _digit1;
   num get digit2 => _digit2;
@@ -129,7 +129,7 @@ class ResistorColorCodeViewModel extends ChangeNotifier {
     return value * multiplier;
   }
 
-  static final digitBandColors = {
+  static const digitBandColors = {
     0: Colors.black,
     1: Colors.brown,
     2: Colors.red,
@@ -177,7 +177,7 @@ class ResistorColorCodeViewModel extends ChangeNotifier {
 
   static Iterable<num> get toleranceBandValues => toleranceBandColors.keys;
 
-  static final tempCoeffBandColors = {
+  static const tempCoeffBandColors = {
     250: Colors.black,
     100: Colors.brown,
     50: Colors.red,
