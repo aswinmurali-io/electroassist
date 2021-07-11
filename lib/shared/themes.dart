@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 abstract class ElectroAssistThemes {
   /// The theme that is preffered by the app unless, overriden by user
   /// preferred theme.
-  static final defaultTheme = ThemeData(
+  static final lightTheme = ThemeData(
     shadowColor: Colors.blueGrey.shade50.withOpacity(0.5),
     textTheme: TextTheme(
       subtitle1: TextStyle(
@@ -27,4 +27,8 @@ abstract class ElectroAssistThemes {
       color: Colors.blueGrey,
     ),
   );
+
+  /// The theme that is preffered by the app unless, overriden by user
+  /// preferred theme.
+  static final darkTheme = lightTheme;
 }

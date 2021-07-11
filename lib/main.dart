@@ -26,25 +26,32 @@ class ElectroAssist extends StatefulWidget {
 }
 
 class _ElectroAssistState extends State<ElectroAssist> {
-  /// The selected theme of the app.
+  ThemeMode _selectedThemeMode = ThemeMode.system;
+
+  /// The selected [ThemeMode] of the app.
   ///
-  /// Defaults to [ElectroAssistThemes.defaultTheme].
+  /// If [ThemeMode.light] is set, [ElectroAssistThemes.lightTheme] is used.
+  /// If [ThemeMode.dark] is set, [ElectroAssistThemes.darkTheme] is used.
+  /// If [ThemeMode.system] is set, a corresponding light theme or dark theme
+  /// is used.
   ///
   /// See also:
+  /// * [ThemeMode]
   /// * [ElectroAssistThemes]
-  ThemeData _selectedTheme = ElectroAssistThemes.defaultTheme;
+  ThemeMode get themeMode => _selectedThemeMode;
 
-  /// The current theme this app uses.
-  ThemeData get theme => _selectedTheme;
-
-  /// Updates the theme this app uses with the specified [value].
-  set theme(ThemeData value) => setState(() => _selectedTheme = value);
+  set themeMode(ThemeMode value) => setState(() => _selectedThemeMode = value);
 
   @override
   build(context) {
     return MaterialApp(
       title: ElectroAssist.appName,
-      theme: _selectedTheme,
+
+      themeMode: _selectedThemeMode,
+
+      theme: ElectroAssistThemes.lightTheme,
+      darkTheme: ElectroAssistThemes.darkTheme,
+
       home: Dashboard(),
 
       // Disables the debug banner during debug builds.
