@@ -50,15 +50,10 @@ class _DashboardState extends State<Dashboard> {
             child: GradientFloatingActionButton(
               tooltip: 'Settings',
               onPressed: action,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Colors.red,
-                  Colors.yellow,
-                ],
+              child: Icon(
+                Icons.settings,
+                color: Colors.blueGrey,
               ),
-              child: Icon(Icons.settings),
             ),
           );
         },
