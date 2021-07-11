@@ -243,6 +243,13 @@ abstract class Resistor {
     return value * multiplier;
   }
 
+  static const resistorTypes = <Type>[
+    ThreeBandResistor,
+    FourBandResistor,
+    FiveBandResistor,
+    SixBandResistor,
+  ];
+
   Resistor._({
     required this.digit1Band,
     required this.digit2Band,
@@ -274,6 +281,9 @@ abstract class Resistor {
 }
 
 class ThreeBandResistor extends Resistor {
+
+  
+
   ThreeBandResistor._(List<ResistorBandColor> bands)
       : assert(bands.length == 3),
         super._(
