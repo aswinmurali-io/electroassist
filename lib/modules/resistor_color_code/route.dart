@@ -3,27 +3,36 @@ import 'package:electroassist/shared/widgets/resistor_tabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ResistorColorCodePage extends StatefulWidget {
-  const ResistorColorCodePage({Key? key}) : super(key: key);
+class ResistorBandState {
+  ResistorBandState._();
 
+  static final instance = ResistorBandState._();
+
+  int? bandTypeIndex;
+
+  int? firstBandColorIndex;
+
+  int? secondBandColorIndex;
+
+  int? thirdBandColorIndex;
+
+  int? fourthBandColorIndex;
+
+  int? fivethBandColorIndex;
+
+  int? sixthBandColorIndex;
+}
+
+class ResistorColorCodePage extends StatefulWidget {
   @override
   createState() => _ResistorColorCodePageState();
 }
 
 class _ResistorColorCodePageState extends State<ResistorColorCodePage> {
-  List<String> _tabs = [
-    "1st Band",
-    "2nd Band",
-    "3rd Band",
-    "Multiplier",
-    "Tolerance",
-    "Temp",
-  ];
-
-  int _selectedIndex = 0;
-
   @override
   build(context) {
+    final resistorState = ResistorBandState.instance;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(ResistorColorCode.instance.name),
@@ -37,10 +46,27 @@ class _ResistorColorCodePageState extends State<ResistorColorCodePage> {
               Text("RESISTOR IMAGE HERE"),
               SizedBox(height: 20),
               SizedBox(
+                height: 100,
+                child: ChipSelector(
+                  onSelected: (index) => resistorState.bandTypeIndex = index,
+                  tabs: [
+                    "3 Band",
+                    "4 Band",
+                    "5 Band",
+                    "6 Band",
+                  ],
+                ),
+              ),              //SizedBox(height: 20),
+              SizedBox(
                 height: 200,
                 child: ChipSelector(
-                  onSelected: (index) => _selectedIndex = index,
-                  tabs: _tabs,
+                  onSelected: (index) => resistorState.bandTypeIndex = index,
+                  tabs: [
+                    "3 Band",
+                    "4 Band",
+                    "5 Band",
+                    "6 Band",
+                  ],
                 ),
               ),
             ],
