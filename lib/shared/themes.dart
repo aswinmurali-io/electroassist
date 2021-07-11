@@ -8,45 +8,23 @@ abstract class ElectroAssistThemes {
   /// The theme that is preffered by the app unless, overriden by user
   /// preferred theme.
   static final defaultTheme = ThemeData(
-    primarySwatch: Colors.blue,
     shadowColor: Colors.blueGrey.shade50.withOpacity(0.5),
     textTheme: TextTheme(
-      headline6: TextStyle(
+      subtitle1: TextStyle(
+        color: Colors.blueGrey.shade700,
+      ),
+      caption: TextStyle(
         color: Colors.blueGrey.shade400,
-        fontWeight: FontWeight.bold,
-        fontSize: 18,
+      ),
+      headline1: TextStyle(
+        fontWeight: FontWeight.w900,
+        letterSpacing: 1.1,
+        color: Colors.blueGrey,
+        fontSize: 30,
       ),
     ),
-    iconTheme: IconThemeData(
+    primaryIconTheme: IconThemeData(
       color: Colors.blueGrey,
     ),
-    appBarTheme: AppBarTheme(
-      iconTheme: IconThemeData(
-        color: Colors.blueGrey,
-      ),
-      backgroundColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: Colors.blueGrey.shade400,
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
-      ),
-    ),
   );
-
-  /// Contains all the themes defined in [ElectroAssistThemes] as a [Set] /
-  /// [Iterable] of [ThemeData].
-  ///
-  /// **Use cases include:**
-  /// * Showing all the available themes in `Preferences` section.
-  /// * Storing the index of the user's preferred theme instead of serializing
-  /// the entire instance of [ThemeData].
-  ///
-  /// **Caution:**
-  /// * New themes must be appended to the existing entries only!
-  static final all = {
-    defaultTheme,
-  };
 }
