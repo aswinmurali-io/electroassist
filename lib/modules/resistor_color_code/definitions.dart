@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+enum ResistorBandType {
+  ThreeBandResistor,
+  FourBandResistor,
+  FiveBandResistor,
+  SizBandResistor,
+}
+
+class ResistorColorCodeViewModel extends ChangeNotifier {
+  ResistorBandType _bandType = ResistorBandType.FourBandResistor;
+
+  ResistorBandType get bandType => _bandType;
+}
+
 /// This class contains properties associated to the color for the color band
 /// of a resistor.
 ///
