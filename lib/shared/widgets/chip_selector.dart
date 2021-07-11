@@ -2,7 +2,7 @@ import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
-class ChipSelector extends StatefulWidget {
+class ChipSelector<T> extends StatefulWidget {
   final List<String> tabs;
 
   final int Function(int index) onSelected;
