@@ -21,9 +21,40 @@ class _DashboardState extends State<Dashboard> {
       body: Column(
         children: [
           Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: OpenContainer(
+                closedElevation: 0,
+                openColor: Colors.transparent,
+                closedColor: Colors.transparent,
+                openElevation: 0,
+                openBuilder: (context, _) => SettingsPage(),
+                closedShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                closedBuilder: (context, action) {
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 3, 8),
+                    child: Tooltip(
+                      message: 'Settings',
+                      child: IconButton(
+                        onPressed: action,
+                        icon: Icon(
+                          Icons.settings,
+                          color: Colors.blueGrey,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 60, 0, 10),
+              padding: const EdgeInsets.fromLTRB(20, 60, 0, 0),
               child: Text(
                 ElectroAssist.appName,
                 style: theme.textTheme.headline1,
@@ -32,36 +63,13 @@ class _DashboardState extends State<Dashboard> {
           ),
           for (final module in Module.allModules)
             Padding(
-              padding: const EdgeInsets.all(40.0),
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
               child: ModuleTile(
                 module: module,
                 style: module.style,
               ),
             ),
         ],
-      ),
-      floatingActionButton: OpenContainer(
-        closedElevation: 0,
-        openColor: Colors.transparent,
-        closedColor: Colors.transparent,
-        openElevation: 0,
-        openBuilder: (context, _) => SettingsPage(),
-        closedShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        closedBuilder: (context, action) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 3, 8),
-            child: GradientFloatingActionButton(
-              tooltip: 'Settings',
-              onPressed: action,
-              child: Icon(
-                Icons.settings,
-                color: Colors.blueGrey,
-              ),
-            ),
-          );
-        },
       ),
     );
   }
