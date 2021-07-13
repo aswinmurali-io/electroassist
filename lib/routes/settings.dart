@@ -1,8 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:electroassist/main.dart';
 import 'package:electroassist/routes/dashboard.dart';
-import 'package:electroassist/shared/widgets/gradient_floating_action_button.dart';
+import 'package:electroassist/shared/widgets/gradients/fab.dart';
+import 'package:electroassist/shared/widgets/gradients/switch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -35,19 +37,27 @@ class _SettingsPageState extends State<SettingsPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 60, 0, 10),
+                padding: const EdgeInsets.fromLTRB(15, 60, 0, 10),
                 child: Text(
                   "Settings",
                   style: theme.textTheme.headline1,
                 ),
               ),
               ListTile(
-                title: Text('Dark Theme'),
-                subtitle: Text('Enable to disable dark mode.'),
-                trailing: Switch(
-                  value: _isDarkMode,
-                  onChanged: (value) => setState(() => _isDarkMode = value),
-                ),
+                title: Text('Change Theme'),
+                subtitle: Text(
+                    'Change your theme from light, dark or let your system handle it.'),
+                isThreeLine: true,
+                trailing: GradientSwitch(),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text('Default Temperature'),
+                subtitle: Text(
+                    'Change your theme from light, dark or let your system handle it.'),
+                isThreeLine: true,
+                trailing: GradientSwitch(),
+                onTap: () {},
               ),
             ],
           ),
@@ -55,8 +65,19 @@ class _SettingsPageState extends State<SettingsPage> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 3, 8),
           child: GradientFloatingActionButton(
-            child: Icon(Icons.chevron_left),
-            //gradient: ,
+            child: Icon(
+              Icons.chevron_left,
+              color: Colors.white,
+            ),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Color(0xffD16BA5),
+                Color(0xff86A8E7),
+                Colors.tealAccent,
+              ],
+            ),
             onPressed: Navigator.of(context).pop,
             tooltip: "Go back to home",
           ),

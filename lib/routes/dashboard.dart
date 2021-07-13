@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:electroassist/main.dart';
 import 'package:electroassist/routes/settings.dart';
 import 'package:electroassist/shared/components/module.dart';
-import 'package:electroassist/shared/widgets/gradient_floating_action_button.dart';
+import 'package:electroassist/shared/widgets/gradients/fab.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
