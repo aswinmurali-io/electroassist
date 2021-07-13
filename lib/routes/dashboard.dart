@@ -5,6 +5,7 @@ import 'package:electroassist/shared/components/module.dart';
 import 'package:electroassist/shared/widgets/gradients/fab.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -13,7 +14,18 @@ class Dashboard extends StatefulWidget {
   createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
+  late AnimationController rotationController;
+
+  @override
+  initState() {
+    rotationController = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+    super.initState();
+  }
+
   @override
   build(context) {
     final theme = Theme.of(context);
@@ -39,10 +51,18 @@ class _DashboardState extends State<Dashboard> {
                     child: Tooltip(
                       message: 'Settings',
                       child: IconButton(
-                        onPressed: action,
-                        icon: Icon(
-                          Icons.settings,
-                          color: Colors.blueGrey,
+                        onPressed: () async {
+                          rotationController.forward(from: 0.0);
+                          await Future.delayed(Duration(milliseconds: 200));
+                          action();
+                        },
+                        icon: RotationTransition(
+                          turns: Tween(begin: 0.0, end: 1.0)
+                              .animate(rotationController),
+                          child: Icon(
+                            Icons.settings,
+                            color: Colors.blueGrey,
+                          ),
                         ),
                       ),
                     ),
