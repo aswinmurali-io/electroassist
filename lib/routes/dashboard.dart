@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   @override
   initState() {
     rotationController = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       vsync: this,
     );
     super.initState();
@@ -41,7 +41,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                 openColor: Colors.transparent,
                 closedColor: Colors.transparent,
                 openElevation: 0,
-                openBuilder: (context, _) => SettingsPage(),
+                openBuilder: (context, _) => SettingsPage(
+                  rotationController: rotationController,
+                ),
                 closedShape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
