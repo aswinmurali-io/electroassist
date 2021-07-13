@@ -11,7 +11,7 @@ class ChipSelectorItem<T> {
   final Widget Function(
     BuildContext context,
     bool isSelected,
-    VoidCallback selectCallback,
+    VoidCallback selectItem,
   ) itemBuilder;
 }
 
