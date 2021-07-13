@@ -1,4 +1,4 @@
-import 'package:electroassist/shared/widgets/gradient_floating_action_button.dart';
+import 'package:electroassist/shared/widgets/gradients/fab.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorPopFloatingActionButton extends StatelessWidget {
