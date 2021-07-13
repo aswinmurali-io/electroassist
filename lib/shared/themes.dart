@@ -8,6 +8,7 @@ abstract class ElectroAssistThemes {
   /// The theme that is preffered by the app unless, overriden by user
   /// preferred theme.
   static final lightTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.transparent,
     shadowColor: Colors.blueGrey.shade50.withOpacity(0.5),
     textTheme: TextTheme(
       subtitle1: TextStyle(
