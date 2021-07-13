@@ -5,6 +5,21 @@ import 'package:provider/provider.dart';
 
 enum ResistorBandType { threeBand, fourBand, fiveBand, sixBand }
 
+extension ResistorBandTypeExtension on ResistorBandType {
+  int get bandsCount {
+    switch (this) {
+      case ResistorBandType.threeBand:
+        return 3;
+      case ResistorBandType.fourBand:
+        return 4;
+      case ResistorBandType.fiveBand:
+        return 5;
+      case ResistorBandType.sixBand:
+        return 6;
+    }
+  }
+}
+
 class ResistorColorCodeViewModel extends ChangeNotifier {
   /// Find's the [ResistorColorCodeViewModel] from the provided [context].
   /// Set [listen] to false to listen outside build.

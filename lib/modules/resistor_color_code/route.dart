@@ -71,7 +71,7 @@ class _ResistorColorCodeView extends StatelessWidget {
                 value: type,
                 itemBuilder: (context, isSelected, selectItem) {
                   return ElevatedButton(
-                    child: Text('$type'),
+                    child: Text('${type.bandsCount} Band'),
                     onPressed: selectItem,
                   );
                 },
