@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  SettingsPage({
+    Key? key,
+    this.rotationController,
+  }) : super(key: key);
+
+  AnimationController? rotationController;
 
   @override
   createState() => _SettingsPageState();
@@ -78,7 +83,10 @@ class _SettingsPageState extends State<SettingsPage> {
                 Colors.tealAccent,
               ],
             ),
-            onPressed: Navigator.of(context).pop,
+            onPressed: () {
+              widget.rotationController?.forward(from: 0);
+              Navigator.of(context).pop();
+            },
             tooltip: "Go back to home",
           ),
         ),
