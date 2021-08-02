@@ -12,8 +12,7 @@ class ResistorColorCodePage extends StatelessWidget with Module {
   String get name => 'Resistor Color Code';
 
   @override
-  String get description =>
-      'Find the value of resistance from the color codes.';
+  String get description => 'Find resistance from color code';
 
   @override
   ModuleTileStyle get style => ModuleTileStyle(
@@ -54,7 +53,7 @@ class ResistorColorCodePage extends StatelessWidget with Module {
         body: SafeArea(
           child: SingleChildScrollView(
             child: ChangeNotifierProvider.value(
-              value: ResistorColorCodeViewModel(),
+              value: Resistor(),
               builder: (_, __) => _ResistorColorCodeView(),
             ),
           ),
@@ -72,6 +71,8 @@ class _ResistorColorCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resistor = Resistor.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
