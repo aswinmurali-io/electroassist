@@ -9,7 +9,7 @@ class ResistorColorCodePage extends StatelessWidget {
   const ResistorColorCodePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  build(context) {
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -30,7 +30,7 @@ class ResistorColorCodePage extends StatelessWidget {
             ),
           ),
         ),
-        floatingActionButton: NavigatorPopFloatingActionButton(
+        floatingActionButton: const NavigatorPopFloatingActionButton(
           tooltip: 'Back to dashboard',
         ),
       ),

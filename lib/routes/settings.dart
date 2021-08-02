@@ -3,12 +3,12 @@ import 'package:electroassist/shared/widgets/gradients/switch.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage({
+  const SettingsPage({
     Key? key,
     this.rotationController,
   }) : super(key: key);
 
-  AnimationController? rotationController;
+  final AnimationController? rotationController;
 
   @override
   createState() => _SettingsPageState();
@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(15, 60, 0, 10),
                 child: Text(
-                  "Settings",
+                  'Settings',
                   style: theme.textTheme.headline1,
                 ),
               ),
@@ -83,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
               widget.rotationController?.forward(from: 0);
               Navigator.of(context).pop();
             },
-            tooltip: "Go back to home",
+            tooltip: 'Go back to home',
           ),
         ),
       ),
