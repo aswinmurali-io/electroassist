@@ -1,11 +1,45 @@
-import 'package:electroassist/modules/resistor_color_code/definitions.dart';
-import 'package:electroassist/shared/widgets/chip_selector.dart';
-import 'package:electroassist/shared/widgets/navigator_pop_fab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:electroassist/modules/resistor_color_code/definitions.dart';
+import 'package:electroassist/shared/widgets/chip_selector.dart';
+import 'package:electroassist/shared/widgets/navigator_pop_fab.dart';
+import 'package:electroassist/shared/components/module.dart';
+import 'package:electroassist/shared/widgets/module_tile.dart';
 
-class ResistorColorCodePage extends StatelessWidget {
+class ResistorColorCodePage extends StatelessWidget with Module {
+  @override
+  get name => 'Resistor Color Code';
+
+  @override
+  get description => 'Find the value of resistance from the color codes.';
+
+  @override
+  get style => ModuleTileStyle(
+        avatorColor: Color(0xff8f94fb),
+        image: Icon(
+          Icons.ac_unit,
+          color: Colors.white,
+        ),
+        textStyle: TextStyle(
+          color: Colors.white,
+        ),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xff4e54c8),
+            Color(0xff8f94fb),
+          ],
+        ),
+      );
+
+  static final colors = [
+    Colors.black,
+    Colors.brown,
+    Colors.red,
+  ];
+
   const ResistorColorCodePage({Key? key}) : super(key: key);
 
   @override

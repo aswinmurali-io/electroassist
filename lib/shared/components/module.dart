@@ -1,13 +1,11 @@
-import 'package:electroassist/modules/resistor_color_code/module.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
-/// Base class interface for all modules. Every modules must inherit this
-/// interface.
+/// A mixin that is preferabbly used on all modules to provide a standard
+/// interface to track all modules.
 ///
-/// All classes extending `Module`, shall be a singleton implementation, so
-/// that [Module.allModules] can track the modules available inside the app.
-abstract class Module {
+/// Append all modules to [allModules] upon implementation.
+mixin Module on Widget {
   /// The name of this module.
   String get name;
 
@@ -17,18 +15,9 @@ abstract class Module {
   /// * Where this module could be used.
   String get description;
 
-  /// The page of this module.
-  ///
-  /// The page that draws the entire section relevant to this module.
-  Widget get page;
-
-  /// The style of the module tile.
+  /// The style of the module tile that is used in the dashboard of the app.
   ModuleTileStyle get style;
 
-  const Module();
-
   /// [Set] of [Module]s that are available in this app.
-  static final allModules = <Module>{
-    ResistorColorCode.instance,
-  };
+  static final allModules = <Module>{};
 }

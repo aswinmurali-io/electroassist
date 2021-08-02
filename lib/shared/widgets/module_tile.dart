@@ -39,10 +39,10 @@ class ModuleTile extends StatelessWidget {
   /// style of the module tile.
   final ModuleTileStyle style;
 
-  const ModuleTile({
+  ModuleTile({
     required this.module,
     required this.style,
-  });
+  }) : super(key: Key('Module Tile (${module.name})'));
 
   @override
   build(context) {
@@ -51,7 +51,7 @@ class ModuleTile extends StatelessWidget {
       openColor: Colors.transparent,
       closedColor: Colors.transparent,
       openElevation: 0,
-      openBuilder: (context, _) => module.page,
+      openBuilder: (context, _) => module,
       closedShape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
