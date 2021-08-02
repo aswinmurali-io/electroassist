@@ -3,27 +3,36 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(ElectroAssist());
 
-/// Is a [MaterialApp] and also contains core properties and information about
-/// this app as static declarations.
+/// The root widget of the app that also contains core properties and
+/// information about this app as static declarations.
+///
+/// See also:
+/// * [ElectroAssist.appName], for the app's name
+/// * [ElectroAssist.of], to get the app's state.
+/// * [ElectroAssist.lightTheme], implements [ThemeData] for [ThemeMode.light]
+/// * [ElectroAssist.darkTheme], implements [ThemeData] for [ThemeMode.dark]
 class ElectroAssist extends StatefulWidget {
   /// The name of the app. Defaults to: `Electro Assist`.
+  /// Consider depending on this property, wherever the app's name is shown.
   static const appName = 'Electro Assist';
 
   @override
-  createState() => _ElectroAssistState();
+  State<ElectroAssist> createState() => _ElectroAssistState();
 
-  /// Returns the instance of `State<ElectroAssist>` in the widget tree of
+  /// Returns an instance of `State<ElectroAssist>` in the widget tree of
   /// [context].
   ///
-  /// **Usage example**
+  /// **Example:**
   /// ```dart
-  /// // Updates the theme with [customTheme].
-  /// ElectroAssist.of(context).theme = customTheme;
+  /// // Sets the app's theme mode to dark theme.
+  /// ElectroAssist.of(context).themeMode = ThemeMode.dark;
   /// ```
   static _ElectroAssistState? of(BuildContext context) =>
       context.findAncestorStateOfType<_ElectroAssistState>();
 
-  /// The theme that is preffered by the app unless, overriden by user
+  /// Light theme that will be used when theme mode is set to [ThemeMode.light].
+  ///
+  /// The theme that is preffered by the app unless, overriden by users
   /// preferred theme.
   static final lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.blueGrey.shade50,
@@ -47,34 +56,37 @@ class ElectroAssist extends StatefulWidget {
     ),
   );
 
-  /// The theme that is preffered by the app unless, overriden by user
-  /// preferred theme.
+  /// Dark theme that will be used when theme mode is set to [ThemeMode.dark].
+  /// This theme is used when preffered by the user's preferences.
+  ///
+  /// TODO: implement dark theme
   static final darkTheme = lightTheme;
 }
 
 class _ElectroAssistState extends State<ElectroAssist> {
-  ThemeMode _selectedThemeMode = ThemeMode.system;
+  /// The currently selected [ThemeMode].
+  ThemeMode _themeMode = ThemeMode.system;
 
-  /// The selected [ThemeMode] of the app.
+  /// The currently selected [ThemeMode].
   ///
-  /// If [ThemeMode.light] is set, [ElectroAssistThemes.lightTheme] is used.
-  /// If [ThemeMode.dark] is set, [ElectroAssistThemes.darkTheme] is used.
+  /// If [ThemeMode.light] is set, [ElectroAssist.lightTheme] is used.
+  /// If [ThemeMode.dark] is set, [ElectroAssist.darkTheme] is used.
   /// If [ThemeMode.system] is set, a corresponding light theme or dark theme
-  /// is used.
+  /// will be used.
   ///
   /// See also:
-  /// * [ThemeMode]
-  /// * [ElectroAssistThemes]
-  ThemeMode get themeMode => _selectedThemeMode;
+  /// * [ElectroAssist.lightTheme]
+  /// * [ElectroAssist.darkTheme]
+  ThemeMode get themeMode => _themeMode;
 
-  set themeMode(ThemeMode value) => setState(() => _selectedThemeMode = value);
+  set themeMode(ThemeMode value) => setState(() => _themeMode = value);
 
   @override
   build(context) {
     return MaterialApp(
       title: ElectroAssist.appName,
 
-      themeMode: _selectedThemeMode,
+      themeMode: _themeMode,
 
       theme: ElectroAssist.lightTheme,
       darkTheme: ElectroAssist.darkTheme,
