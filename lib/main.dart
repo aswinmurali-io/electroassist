@@ -6,7 +6,7 @@ void main() => runApp(ElectroAssist());
 
 /// Is a [MaterialApp] and also contains core properties and information about
 /// this app as static declarations.
-class ElectroAssist extends StatefulWidget {
+class ElectroAssist extends StatefulWidget with ElectroAssistThemes {
   /// The name of the app. Defaults to: `Electro Assist`.
   static const appName = 'Electro Assist';
 
@@ -23,47 +23,7 @@ class ElectroAssist extends StatefulWidget {
   /// ```
   static _ElectroAssistState? of(BuildContext context) =>
       context.findAncestorStateOfType<_ElectroAssistState>();
-}
 
-class _ElectroAssistState extends State<ElectroAssist> {
-  ThemeMode _selectedThemeMode = ThemeMode.system;
-
-  /// The selected [ThemeMode] of the app.
-  ///
-  /// If [ThemeMode.light] is set, [ElectroAssistThemes.lightTheme] is used.
-  /// If [ThemeMode.dark] is set, [ElectroAssistThemes.darkTheme] is used.
-  /// If [ThemeMode.system] is set, a corresponding light theme or dark theme
-  /// is used.
-  ///
-  /// See also:
-  /// * [ThemeMode]
-  /// * [ElectroAssistThemes]
-  ThemeMode get themeMode => _selectedThemeMode;
-
-  set themeMode(ThemeMode value) => setState(() => _selectedThemeMode = value);
-
-  @override
-  build(context) {
-    return MaterialApp(
-      title: ElectroAssist.appName,
-
-      themeMode: _selectedThemeMode,
-
-      theme: ElectroAssistThemes.lightTheme,
-      darkTheme: ElectroAssistThemes.darkTheme,
-
-      home: Dashboard(),
-
-      // Disables the debug banner during debug builds.
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-/// Contains all the in-built themes of this app. This class shall not be
-/// inherited nor be constructed, as it shall contain only static definitions.
-@sealed
-abstract class ElectroAssistThemes {
   /// The theme that is preffered by the app unless, overriden by user
   /// preferred theme.
   static final lightTheme = ThemeData(
@@ -91,4 +51,39 @@ abstract class ElectroAssistThemes {
   /// The theme that is preffered by the app unless, overriden by user
   /// preferred theme.
   static final darkTheme = lightTheme;
+}
+
+class _ElectroAssistState extends State<ElectroAssist> {
+  ThemeMode _selectedThemeMode = ThemeMode.system;
+
+  /// The selected [ThemeMode] of the app.
+  ///
+  /// If [ThemeMode.light] is set, [ElectroAssistThemes.lightTheme] is used.
+  /// If [ThemeMode.dark] is set, [ElectroAssistThemes.darkTheme] is used.
+  /// If [ThemeMode.system] is set, a corresponding light theme or dark theme
+  /// is used.
+  ///
+  /// See also:
+  /// * [ThemeMode]
+  /// * [ElectroAssistThemes]
+  ThemeMode get themeMode => _selectedThemeMode;
+
+  set themeMode(ThemeMode value) => setState(() => _selectedThemeMode = value);
+
+  @override
+  build(context) {
+    return MaterialApp(
+      title: ElectroAssist.appName,
+
+      themeMode: _selectedThemeMode,
+
+      theme: ElectroAssist.lightTheme,
+      darkTheme: ElectroAssist.darkTheme,
+
+      home: Dashboard(),
+
+      // Disables the debug banner during debug builds.
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
