@@ -1,12 +1,11 @@
 import 'package:electroassist/routes/dashboard.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 void main() => runApp(ElectroAssist());
 
 /// Is a [MaterialApp] and also contains core properties and information about
 /// this app as static declarations.
-class ElectroAssist extends StatefulWidget with ElectroAssistThemes {
+class ElectroAssist extends StatefulWidget {
   /// The name of the app. Defaults to: `Electro Assist`.
   static const appName = 'Electro Assist';
 
