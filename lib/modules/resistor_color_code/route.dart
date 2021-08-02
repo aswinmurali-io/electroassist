@@ -16,7 +16,7 @@ class ResistorColorCodePage extends StatelessWidget with Module {
       'Find the value of resistance from the color codes.';
 
   @override
-  ModuleTileStyle get style => const ModuleTileStyle(
+  ModuleTileStyle get style => ModuleTileStyle(
         avatorColor: Color(0xff8f94fb),
         image: Icon(
           Icons.ac_unit,
