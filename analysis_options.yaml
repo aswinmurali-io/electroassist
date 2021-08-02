@@ -1,0 +1,17 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: true
+    implicit-dynamic: true
+  exclude:
+    - "**/*.g.dart"
+
+linter:
+  rules:
+    prefer_final_locals: false
+    parameter_assignments: false
+    no_runtimetype_tostring: false
+    avoid_escaping_inner_quotes: false
+    prefer_const_constructors: true
+    prefer_single_quotes: true
