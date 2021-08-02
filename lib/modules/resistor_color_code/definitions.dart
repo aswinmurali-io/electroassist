@@ -20,11 +20,10 @@ extension ResistorBandTypeExtension on ResistorBandType {
   }
 }
 
-class ResistorColorCodeViewModel extends ChangeNotifier {
-  /// Find's the [ResistorColorCodeViewModel] from the provided [context].
+class Resistor extends ChangeNotifier {
+  /// Find's the [Resistor] from the provided [context].
   /// Set [listen] to `false` to listen outside build / widget tree.
-  static ResistorColorCodeViewModel of(BuildContext context,
-          {bool listen = true}) =>
+  static Resistor of(BuildContext context, {bool listen = true}) =>
       Provider.of(context, listen: listen);
 
   ResistorBandType _bandType = ResistorBandType.fourBand;
