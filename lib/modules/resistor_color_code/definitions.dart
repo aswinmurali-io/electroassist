@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' show Random;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,11 +22,9 @@ extension ResistorBandTypeExtension on ResistorBandType {
 
 class ResistorColorCodeViewModel extends ChangeNotifier {
   /// Find's the [ResistorColorCodeViewModel] from the provided [context].
-  /// Set [listen] to false to listen outside build.
-  static ResistorColorCodeViewModel of(
-    BuildContext context, {
-    bool listen = true,
-  }) =>
+  /// Set [listen] to `false` to listen outside build / widget tree.
+  static ResistorColorCodeViewModel of(BuildContext context,
+          {bool listen = true}) =>
       Provider.of(context, listen: listen);
 
   ResistorBandType _bandType = ResistorBandType.fourBand;

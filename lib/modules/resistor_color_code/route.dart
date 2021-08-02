@@ -9,13 +9,14 @@ import 'package:electroassist/shared/widgets/module_tile.dart';
 
 class ResistorColorCodePage extends StatelessWidget with Module {
   @override
-  get name => 'Resistor Color Code';
+  String get name => 'Resistor Color Code';
 
   @override
-  get description => 'Find the value of resistance from the color codes.';
+  String get description =>
+      'Find the value of resistance from the color codes.';
 
   @override
-  get style => ModuleTileStyle(
+  ModuleTileStyle get style => const ModuleTileStyle(
         avatorColor: Color(0xff8f94fb),
         image: Icon(
           Icons.ac_unit,
@@ -34,16 +35,10 @@ class ResistorColorCodePage extends StatelessWidget with Module {
         ),
       );
 
-  static final colors = [
-    Colors.black,
-    Colors.brown,
-    Colors.red,
-  ];
-
   const ResistorColorCodePage({Key? key}) : super(key: key);
 
   @override
-  build(context) {
+  Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -64,7 +59,7 @@ class ResistorColorCodePage extends StatelessWidget with Module {
             ),
           ),
         ),
-        floatingActionButton: const NavigatorPopFloatingActionButton(
+        floatingActionButton: NavigatorPopFloatingActionButton(
           tooltip: 'Back to dashboard',
         ),
       ),
