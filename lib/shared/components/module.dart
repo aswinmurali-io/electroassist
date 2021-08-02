@@ -1,3 +1,4 @@
+import 'package:electroassist/modules/resistor_color_code/route.dart';
 import 'package:electroassist/shared/widgets/module_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -19,5 +20,7 @@ mixin Module on Widget {
   ModuleTileStyle get style;
 
   /// [Set] of [Module]s that are available in this app.
-  static final allModules = <Module>{};
+  static final allModules = <Module>{
+    ResistorColorCodePage(),
+  };
 }
