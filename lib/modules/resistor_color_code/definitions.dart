@@ -1,5 +1,4 @@
-import 'dart:math' show Random;
-
+import 'package:electroassist/shared/components/globals.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +19,7 @@ extension ResistorBandTypeExtension on ResistorBandType {
   }
 }
 
+/// Implements the resistor logic.
 class Resistor extends ChangeNotifier {
   /// Find's the [Resistor] from the provided [context].
   /// Set [listen] to `false` to listen outside build / widget tree.
@@ -28,6 +28,7 @@ class Resistor extends ChangeNotifier {
 
   ResistorBandType _bandType = ResistorBandType.fourBand;
 
+  /// get the band type of the resistor.
   ResistorBandType get bandType => _bandType;
 
   set bandType(ResistorBandType value) {
@@ -37,6 +38,7 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  /// get the number of digit bands in the resistor.
   int get numberOfDigitBands {
     switch (bandType) {
       case ResistorBandType.threeBand:
@@ -48,6 +50,7 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  /// check if the resistor has tolerance band.
   bool get hasToleranceBand {
     switch (bandType) {
       case ResistorBandType.threeBand:
@@ -59,6 +62,7 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  /// check if the resistor has temperature coefficient band.
   bool get hasTemperatureCoefficientBand {
     switch (bandType) {
       case ResistorBandType.threeBand:
@@ -70,33 +74,26 @@ class Resistor extends ChangeNotifier {
     }
   }
 
-  static final _random = Random();
-
+  /// get a random digit band.
   static num get randomDigitBand =>
-      digitBandValues.elementAt(_random.nextInt(digitBandColors.length));
+      digitBandValues.elementAt(random.nextInt(digitBandColors.length));
 
+  /// get a random multiplier band.
   static num get randomMultiplierBand => multiplierBandValues
-      .elementAt(_random.nextInt(multiplierBandValues.length));
+      .elementAt(random.nextInt(multiplierBandValues.length));
 
-  static num get randomToleranceBand => toleranceBandValues
-      .elementAt(_random.nextInt(toleranceBandValues.length));
+  /// get a random tolerance band.
+  static num get randomToleranceBand =>
+      toleranceBandValues.elementAt(random.nextInt(toleranceBandValues.length));
 
-  static num get randomTemperatureCoefficientBand => tempCoeffBandValues
-      .elementAt(_random.nextInt(tempCoeffBandValues.length));
+  /// get a random temperature coefficient band.
+  static num get randomTemperatureCoefficientBand =>
+      tempCoeffBandValues.elementAt(random.nextInt(tempCoeffBandValues.length));
 
   num _digit1 = randomDigitBand;
-  num _digit2 = randomDigitBand;
-  num _digit3 = randomDigitBand;
-  num _multiplier = randomMultiplierBand;
-  num _tolerance = randomToleranceBand;
-  num _temperatureCoefficient = randomTemperatureCoefficientBand;
 
+  /// get first digit band.
   num get digit1 => _digit1;
-  num get digit2 => _digit2;
-  num get digit3 => _digit3;
-  num get multiplier => _multiplier;
-  num get tolerance => _tolerance;
-  num get temperatureCoefficient => _temperatureCoefficient;
 
   set digit1(num value) {
     if (digit1 != value) {
@@ -105,12 +102,22 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  num _digit2 = randomDigitBand;
+
+  /// get second digit band.
+  num get digit2 => _digit2;
+
   set digit2(num value) {
     if (digit2 != value) {
       _digit2 = value;
       notifyListeners();
     }
   }
+
+  num _digit3 = randomDigitBand;
+
+  /// get third digit band.
+  num get digit3 => _digit3;
 
   set digit3(num value) {
     if (digit3 != value) {
@@ -119,12 +126,22 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  num _multiplier = randomMultiplierBand;
+
+  /// get multiplier digit band.
+  num get multiplier => _multiplier;
+
   set multiplier(num value) {
     if (multiplier != value) {
       _multiplier = value;
       notifyListeners();
     }
   }
+
+  num _tolerance = randomToleranceBand;
+
+  /// get tolerance digit band.
+  num get tolerance => _tolerance;
 
   set tolerance(num value) {
     if (tolerance != value) {
@@ -133,6 +150,11 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  num _temperatureCoefficient = randomTemperatureCoefficientBand;
+
+  /// get temperature coefficient digit band.
+  num get temperatureCoefficient => _temperatureCoefficient;
+
   set temperatureCoefficientBand(num value) {
     if (temperatureCoefficient != value) {
       _temperatureCoefficient = value;
@@ -140,6 +162,7 @@ class Resistor extends ChangeNotifier {
     }
   }
 
+  /// get the resistance.
   num get resistance {
     var value = digit1 * 10 + digit2;
 
@@ -150,6 +173,7 @@ class Resistor extends ChangeNotifier {
     return value * multiplier;
   }
 
+  /// get the digit band color definitions.
   static const digitBandColors = {
     0: Colors.black,
     1: Colors.brown,
@@ -163,8 +187,10 @@ class Resistor extends ChangeNotifier {
     9: Colors.white,
   };
 
+  /// get a list of possible digit band values.
   static Iterable<int> get digitBandValues => digitBandColors.keys;
 
+  /// get the multiplier band color definitions.
   static final multiplierBandColors = {
     1e0: Colors.black,
     1e1: Colors.brown,
@@ -180,8 +206,10 @@ class Resistor extends ChangeNotifier {
     1e-2: Colors.grey.shade300,
   };
 
+  /// get a list of possible multiplier band values.
   static Iterable<num> get multiplierBandValues => multiplierBandColors.keys;
 
+  /// get the tolerance band color definitions.
   static final toleranceBandColors = {
     1: Colors.brown,
     2: Colors.red,
@@ -196,8 +224,10 @@ class Resistor extends ChangeNotifier {
     20: Colors.transparent,
   };
 
+  /// get a list of possible tolerance band values.
   static Iterable<num> get toleranceBandValues => toleranceBandColors.keys;
 
+  /// get the temperature coefficient band color definitions.
   static const tempCoeffBandColors = {
     250: Colors.black,
     100: Colors.brown,
@@ -210,5 +240,6 @@ class Resistor extends ChangeNotifier {
     1: Colors.grey,
   };
 
+  /// get a list of possible temperature coefficient band values.
   static Iterable<num> get tempCoeffBandValues => tempCoeffBandColors.keys;
 }
