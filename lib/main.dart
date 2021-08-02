@@ -1,7 +1,7 @@
 import 'package:electroassist/routes/dashboard.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(ElectroAssist());
+void main() => runApp(const ElectroAssist());
 
 /// The root widget of the app that also contains core properties and
 /// information about this app as static declarations.
@@ -12,6 +12,8 @@ void main() => runApp(ElectroAssist());
 /// * [ElectroAssist.lightTheme], implements [ThemeData] for [ThemeMode.light]
 /// * [ElectroAssist.darkTheme], implements [ThemeData] for [ThemeMode.dark]
 class ElectroAssist extends StatefulWidget {
+  const ElectroAssist({Key? key}) : super(key: key);
+
   /// The name of the app. Defaults to: `Electro Assist`.
   /// Consider depending on this property, wherever the app's name is shown.
   static const appName = 'Electro Assist';
