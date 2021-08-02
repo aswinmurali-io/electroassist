@@ -1,10 +1,6 @@
-import 'package:animations/animations.dart';
-import 'package:electroassist/main.dart';
-import 'package:electroassist/routes/dashboard.dart';
 import 'package:electroassist/shared/widgets/gradients/fab.dart';
 import 'package:electroassist/shared/widgets/gradients/switch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animator/flutter_animator.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({
